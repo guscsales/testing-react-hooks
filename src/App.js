@@ -33,20 +33,18 @@ function App() {
     };
 
     return (
-        <>
-            <ul>
-                {repos.map(({ id, name, favorite }) => (
-                    <li key={id}>
-                        <button onClick={() => handleFavorite(id)}>
-                            Toggle Favorite
-                        </button>{' '}
-                        {id} - {name} -{' '}
-                        <strong>{favorite && 'Is Favorite Repo!'}</strong>
-                    </li>
-                ))}
-            </ul>
-        </>
+        <ul>
+            {repos.map(({ id, name, favorite }) => (
+                <li key={id}>
+                    <button onClick={() => handleFavorite(id)}>
+                        Toggle Favorite
+                    </button>{' '}
+                    {id} - {name} -{' '}
+                    <strong>{favorite && 'Is Favorite Repo!'}</strong>
+                </li>
+            ))}
+        </ul>
     );
 };
 
-export default App;
+export default React.memo(App);
